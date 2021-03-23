@@ -5,6 +5,7 @@ const {login} = require('../app/controllers/Auth/LoginController')
 const { test } = require('../app/controllers/Auth/TestController')
 const { refreshToken } = require('../app/controllers/Auth/RefreshTokenController')
 const { fileUpload } = require('../app/controllers/FileHandling/FileUploadController')
+const { downloadFile } = require('../app/controllers/FileHandling/FileDownloadController')
 
 
 router.post('/register',registerValidation,register)
@@ -13,5 +14,6 @@ router.post('/refresh-session',refreshToken)
 router.get('/protected',auth,test)
 
 router.post('/upload',fileUpload)
+router.get('/download/:filename',downloadFile)
 
 module.exports = router
